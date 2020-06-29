@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../style/displayRandom.css";
 
 function DisplayRandom(props) {
   const [ingredients, setIngredients] = useState([]);
@@ -9,14 +10,12 @@ function DisplayRandom(props) {
       (key) => drink[key] != null && key.includes(att)
     );
 
-    let drinkIngredients = [];
+    let drinkAttributes = [];
     for (let i = 0; i < filteredDrink.length; i++) {
-      //   drinkIngredients[filteredDrink[i]] = drink[filteredDrink[i]];
-      drinkIngredients.push(drink[filteredDrink[i]]);
+      drinkAttributes.push(drink[filteredDrink[i]]);
     }
-    console.log(drinkIngredients);
 
-    return drinkIngredients;
+    return drinkAttributes;
   };
 
   const setDrinkAttributes = (drink) => {
@@ -25,25 +24,32 @@ function DisplayRandom(props) {
   };
 
   useEffect(() => {
-    console.log(props);
-
     setDrinkAttributes(props.drink[0]);
   }, []);
 
   let drinkItem = null;
 
   drinkItem = (
-    <div>
+    <div className="random-drink-wrapper">
+      <h1>Try this recipe!</h1>
+      <img
+        src={props.drink[0].strDrinkThumb}
+        className="random-drink-img"
+        alt="drink image"
+      ></img>
       <h1>{props.drink[0].strDrink}</h1>
       <ul>
         {ingredients.map((ingredient, index) => {
           return (
             <li key={index}>
-              {ingredient} - {measurements[index]}
+              {measurements[index]} {ingredient}
             </li>
           );
         })}
       </ul>
+      <p>
+        Use a {props.drink[0].strGlass} then {props.drink[0].strInstructions}
+      </p>
     </div>
   );
 

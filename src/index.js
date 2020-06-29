@@ -5,14 +5,39 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
+import FilteredByAlcohol from "./components/FilteredByAlcohol";
+import { createStore } from "redux";
+import reducer from "./reducers/AlcoholCategory";
+import { Provider } from "react-redux";
+import Search from "./components/Search";
+import DrinkDetails from "./components/DrinkDetails";
+
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App>
-        <Switch>
-          <Route component={Home} path="/" exact />
-        </Switch>
-      </App>
+      <Provider store={store}>
+        <App>
+          <Switch>
+            <Route component={Home} path="/" exact />
+            <Route
+              component={FilteredByAlcohol}
+              path="/category/:alc_type"
+              exact
+            ></Route>
+            <Route component={Search} path="/search" exact></Route>
+            <Route
+              component={DrinkDetails}
+              path="/category/vodka/:id"
+              exact
+            ></Route>
+          </Switch>
+        </App>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

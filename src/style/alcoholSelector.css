@@ -1,0 +1,21 @@
+.selector-wrapper {
+  margin: auto;
+}
+
+.selector-ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.selector-items {
+  text-align: center;
+  padding: 25px;
+}
+
+.selector-bottle-img {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../style/Home.css";
 import * as utils from "../utils/fetchFunctions";
 import DisplayRandom from "./DisplayRandom";
-
+import Selector from "../components/AlcoholSelector";
 function Home() {
   const [randomDrink, setRandomDrink] = useState([]);
 
@@ -12,15 +12,11 @@ function Home() {
       .then((result) => setRandomDrink(result.drinks));
   }, []);
 
-  console.log(randomDrink);
   return (
     <div className="home_page_div">
-      <h1>HomePage</h1>
-      <div>
-        <h1>Random Drink</h1>
+      {randomDrink.length > 0 ? <DisplayRandom drink={randomDrink} /> : null}
 
-        {randomDrink.length > 0 ? <DisplayRandom drink={randomDrink} /> : null}
-      </div>
+      <Selector />
     </div>
   );
 }
