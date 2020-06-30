@@ -37,19 +37,21 @@ function DisplayRandom(props) {
         className="random-drink-img"
         alt="drink image"
       ></img>
-      <h1>{props.drink[0].strDrink}</h1>
-      <ul>
-        {ingredients.map((ingredient, index) => {
-          return (
-            <li key={index}>
-              {measurements[index]} {ingredient}
-            </li>
-          );
-        })}
-      </ul>
-      <p>
-        Use a {props.drink[0].strGlass} then {props.drink[0].strInstructions}
-      </p>
+      <div className="random-drink-content">
+        <h1>{props.drink[0].strDrink}</h1>
+        <ul>
+          {ingredients.map((ingredient, index) => {
+            return (
+              <li key={index}>
+                {measurements[index]} {ingredient}
+              </li>
+            );
+          })}
+        </ul>
+        <p>
+          Use a {props.drink[0].strGlass} then {props.drink[0].strInstructions}
+        </p>
+      </div>
     </div>
   );
 

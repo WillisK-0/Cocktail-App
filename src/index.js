@@ -12,6 +12,8 @@ import { Provider } from "react-redux";
 import Search from "./components/Search";
 import DrinkDetails from "./components/DrinkDetails";
 
+const combineReducers = redux.combineReducers;
+
 const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
