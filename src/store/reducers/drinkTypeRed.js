@@ -8,6 +8,7 @@ const drinkType = (state = initialState, action) => {
         drinkTypeList: state.drinkTypeList.concat(action.drinkTypeList),
       };
   }
+  return state;
 };
 
 export default drinkType;

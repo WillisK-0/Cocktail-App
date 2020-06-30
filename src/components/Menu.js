@@ -6,12 +6,12 @@ import { NavLink } from "react-router-dom";
 import "../style/Menu.css";
 
 function Menu(props) {
-  function handleTypeSelection(type) {
+  const handleTypeSelection = (type) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${type}
     `)
       .then((r) => r.json())
       .then((result) => props.handleTypeAction(result.drinks));
-  }
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,7 +31,7 @@ function Menu(props) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <NavLink className="nav-link" to="#">
+            <NavLink className="nav-link" to="/">
               Home<span className="sr-only"></span>
             </NavLink>
           </li>
@@ -53,17 +53,25 @@ function Menu(props) {
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <NavLink
                 className="dropdown-item"
-                to="#"
-                onClick={handleTypeSelection("Shot")}
+                to="/drink-type/shot"
+                onClick={() => handleTypeSelection("Shot")}
               >
                 Shot
               </NavLink>
-              <a className="dropdown-item" href="#">
+              <NavLink
+                className="dropdown-item"
+                to="/drink-type/cocktail"
+                onClick={() => handleTypeSelection("Cocktail")}
+              >
                 Cocktail
-              </a>
-              <a className="dropdown-item" href="#">
+              </NavLink>
+              <NavLink
+                className="dropdown-item"
+                to="/drink-type/beer"
+                onClick={() => handleTypeSelection("Beer")}
+              >
                 Beer
-              </a>
+              </NavLink>
             </div>
           </li>
         </ul>
