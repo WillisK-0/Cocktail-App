@@ -5,7 +5,12 @@ const drinkType = (state = initialState, action) => {
     case "TYPE_LIST":
       return {
         ...state,
-        drinkTypeList: state.drinkTypeList.concat(action.drinkTypeList),
+        drinkTypeList: action.drinkTypeList,
+      };
+    case "SEARCH_LIST":
+      return {
+        ...state,
+        drinkSearchList: action.drinkSearchList,
       };
   }
   return state;
