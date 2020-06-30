@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import { NavLink } from "react-router-dom";
@@ -6,11 +6,19 @@ import { NavLink } from "react-router-dom";
 import "../style/Menu.css";
 
 function Menu(props) {
+  const [search, setSearch] = useState("");
+
   const handleTypeSelection = (type) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${type}
     `)
       .then((r) => r.json())
       .then((result) => props.handleTypeAction(result.drinks));
+  };
+
+  const handleSearchPress = () => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
+      .then((r) => r.json())
+      .then((result) => props.handleSearchAction(result.drinks));
   };
 
   return (
@@ -75,28 +83,36 @@ function Menu(props) {
             </div>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
+        <div className="form-inline my-2 my-lg-0">
           <input
             className="form-control mr-sm-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
+            onChange={(e) => setSearch(e.target.value)}
           ></input>
           <button
             className="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
+            onClick={handleSearchPress}
           >
             Search
           </button>
-        </form>
+        </div>
       </div>
     </nav>
   );
+}
+
+{
+  /* <input value={input} onInput={e => setInput(e.target.value)}/> */
 }
 const mapDispatchToProps = (dispatch) => {
   return {
     handleTypeAction: (drinks) => {
       dispatch({ type: "TYPE_LIST", drinkTypeList: drinks });
+    },
+    handleSearchAction: (drinks) => {
+      dispatch({ type: "SEARCH_LIST", drinkSearchList: drinks });
     },
   };
 };

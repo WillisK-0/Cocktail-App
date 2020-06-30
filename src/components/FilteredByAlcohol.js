@@ -13,17 +13,19 @@ function FilteredByAlcohol(props) {
     setLocalDrinkList(props.drinkArray);
   }, [props.drinkArray]);
 
+  const shuffled = localDrinkList.sort(() => 0.5 - Math.random());
+
   return (
     <div className="drink-list-wrapper">
       <ul className="drink-list-items">
-        {localDrinkList.slice(0, 15).map((drink, index) => {
+        {shuffled.slice(0, 50).map((drink, index) => {
           const drinkDetails = "/category/vodka/" + drink.idDrink;
           return (
             <li key={index} className="drink-list-item">
               <div className="drink-card">
                 <NavLink to={drinkDetails}>
-                  <label>{drink.strDrink}</label>
                   <img src={drink.strDrinkThumb}></img>
+                  <figcaption>{drink.strDrink}</figcaption>
                   <input
                     type="hidden"
                     name="drinkId"
