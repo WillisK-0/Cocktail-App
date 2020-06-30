@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-import "../style/filteredByAlcohol.css";
-
-import { connect } from "react-redux";
-
-function FilteredByAlcohol(props) {
-  const [localDrinkList, setLocalDrinkList] = useState([]);
-
+function DisplayType(props) {
+  const [drinks, setDrinks] = useState([]);
   useEffect(() => {
-    console.log(props);
-    setLocalDrinkList(props.drinkArray);
-  }, [props.drinkArray]);
+    setDrinks(props.drinkTypeList);
+  }, [props.drinkTypeList]);
 
   return (
     <div className="drink-list-wrapper">
       <ul className="drink-list-items">
-        {localDrinkList.slice(0, 15).map((drink, index) => {
+        {drinks.slice(0, 15).map((drink, index) => {
           const drinkDetails = "/category/vodka/" + drink.idDrink;
           return (
             <li key={index} className="drink-list-item">
@@ -39,11 +34,9 @@ function FilteredByAlcohol(props) {
   );
 }
 
-const mapStateToProps = (state) => {
+const matchStateToProps = (state) => {
   return {
-    drinkArray: state.alcoholCategoryReducer.drinkList,
+    drinkTypeList: state.drinkTypeReducer.drinkTypeList,
   };
 };
-
-// export default connect(mapStateToProps)(FilteredByAlcohol);
-export default connect(mapStateToProps)(FilteredByAlcohol);
+export default connect(matchStateToProps)(DisplayType);

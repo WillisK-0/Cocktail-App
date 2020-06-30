@@ -1,14 +1,23 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { NavLink } from "react-router-dom";
+
 import "../style/Menu.css";
 
-function Menu() {
+function Menu(props) {
+  const handleTypeSelection = (type) => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${type}
+    `)
+      .then((r) => r.json())
+      .then((result) => props.handleTypeAction(result.drinks));
+  };
+
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
-        U-MIX
-      </a>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <h4 className="navbar-brand">U-MIX</h4>
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -16,22 +25,22 @@ function Menu() {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">
-              Home<span class="sr-only"></span>
-            </a>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <NavLink className="nav-link" to="/">
+              Home<span className="sr-only"></span>
+            </NavLink>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"></a>
+          <li className="nav-item">
+            <a className="nav-link" href="#"></a>
           </li>
-          <li class="nav-item dropdown">
+          <li className="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle"
+              className="nav-link dropdown-toggle"
               href="#"
               id="navbarDropdown"
               role="button"
@@ -41,27 +50,42 @@ function Menu() {
             >
               Drink-Type
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <NavLink
+                className="dropdown-item"
+                to="/drink-type/shot"
+                onClick={() => handleTypeSelection("Shot")}
+              >
                 Shot
-              </a>
-              <a class="dropdown-item" href="#">
+              </NavLink>
+              <NavLink
+                className="dropdown-item"
+                to="/drink-type/cocktail"
+                onClick={() => handleTypeSelection("Cocktail")}
+              >
                 Cocktail
-              </a>
-              <a class="dropdown-item" href="#">
+              </NavLink>
+              <NavLink
+                className="dropdown-item"
+                to="/drink-type/beer"
+                onClick={() => handleTypeSelection("Beer")}
+              >
                 Beer
-              </a>
+              </NavLink>
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form className="form-inline my-2 my-lg-0">
           <input
-            class="form-control mr-sm-2"
+            className="form-control mr-sm-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           ></input>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button
+            className="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
             Search
           </button>
         </form>
@@ -69,5 +93,11 @@ function Menu() {
     </nav>
   );
 }
-
-export default Menu;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleTypeAction: (drinks) => {
+      dispatch({ type: "TYPE_LIST", drinkTypeList: drinks });
+    },
+  };
+};
+export default connect(null, mapDispatchToProps)(Menu);

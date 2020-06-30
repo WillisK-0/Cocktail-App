@@ -6,14 +6,22 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import FilteredByAlcohol from "./components/FilteredByAlcohol";
-import { createStore } from "redux";
-import reducer from "./reducers/AlcoholCategory";
+import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import Search from "./components/Search";
 import DrinkDetails from "./components/DrinkDetails";
+import drinkTypeReducer from "./store/reducers/drinkTypeRed";
+import alcoholCategoryReducer from "./store/reducers/AlcoholCategory";
+import DisplayType from "./components/DisplayType";
+
+const rootReducer = combineReducers({
+  drinkTypeReducer,
+  alcoholCategoryReducer,
+});
+// const rootReducer = combineReducers(drinkTypeReducer, alcoholCategoryReducer);
 
 const store = createStore(
-  reducer,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
@@ -33,6 +41,11 @@ ReactDOM.render(
             <Route
               component={DrinkDetails}
               path="/category/vodka/:id"
+              exact
+            ></Route>
+            <Route
+              component={DisplayType}
+              path="/drink-type/:type"
               exact
             ></Route>
           </Switch>
