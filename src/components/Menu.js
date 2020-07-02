@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 
 import "../style/Menu.css";
 
 function Menu(props) {
   const [search, setSearch] = useState("");
+  const [searchLink, setSearchLink] = useState("");
+  const [enterPress, setEnterPress] = useState(false);
 
   const handleTypeSelection = (type) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${type}
@@ -18,14 +20,18 @@ function Menu(props) {
   const handleSearchPress = (input) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`)
       .then((r) => r.json())
-      .then((result) => props.handleSearchAction(result.drinks));
+      .then((result) => props.handleSearchAction(result.drinks))
+      .then(() => {
+        setSearchLink("/search/" + search);
+      });
   };
-  const searchLink = "/search/" + search;
 
   const handleKeyPress = (e, search) => {
     if (e.which === 13) {
       console.log("fire");
       handleSearchPress(search);
+      setSearchLink("/search/" + search);
+      setEnterPress(true);
     }
   };
 
@@ -108,7 +114,11 @@ function Menu(props) {
               onChange={(e) => setSearch(e.target.value)}
               onKeyPress={(e) => handleKeyPress(e, search)}
             ></input>
-            {/* </NavLink> */}
+            <>
+              {enterPress == true && searchLink.length > 0 ? (
+                <Redirect to={searchLink} />
+              ) : null}
+            </>
             <NavLink to={searchLink}>
               <button
                 className="btn btn-outline-success my-2 my-sm-0"
