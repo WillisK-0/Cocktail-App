@@ -19,7 +19,7 @@ figcaption {
   margin-left: auto;
 }
 
-.drink-type-list-items {
+.drink-list-items {
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;

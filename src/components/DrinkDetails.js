@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../style/drinkDetails.css";
 
 function DrinkDetails(props) {
   const [details, setDetails] = useState([]);
@@ -23,7 +24,6 @@ function DrinkDetails(props) {
       (key) => details[key] != null && key.includes(att)
     );
 
-    console.log(filteredDrink);
     let drinkAttributes = [];
     for (let i = 0; i < filteredDrink.length; i++) {
       drinkAttributes.push(details[filteredDrink[i]]);
@@ -36,26 +36,65 @@ function DrinkDetails(props) {
   }, []);
 
   return (
-    <div className="details-wrapper">
-      <h1>{details.strDrink}</h1>
-      <img src={details.strDrinkThumb}></img>
-      <h2>Ingredients</h2>
-      <ul className="details-items">
-        <li className="details-item">Glass: {details.strGlass}</li>
+    <div className="random-drink-wrapper">
+      <ul className="random-drink-divs">
+        <li className="random-drink-item">
+          <div>
+            <h1>{details.strDrink}</h1>
+          </div>
 
-        {ingredients.map((ingredient, index) => {
-          return (
-            <li key={index}>
-              <p>
-                {measurements[index]} {ingredient}
-              </p>
-            </li>
-          );
-        })}
+          <div className="drink-type-drink-card">
+            <img
+              src={details.strDrinkThumb}
+              className="random-drink-img"
+              alt="drink image"
+            ></img>
+          </div>
+        </li>
+        <li className="random-drink-item">
+          {" "}
+          <div className="random-drink-content">
+            <h1>Ingredients:</h1>
+            <h3></h3>
+            <ul className="drink-type-drink-items">
+              {ingredients.map((ingredient, index) => {
+                return (
+                  <li key={index}>
+                    <p>
+                      {measurements[index]} {ingredient}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+            <h4 id="instructionsH4">Instructions:</h4>
+            <p id="instructionsP">
+              Use a {details.strGlass} then {details.strInstructions}
+            </p>
+          </div>
+        </li>
       </ul>
-      <h4>Instructions</h4>
-      <p>{details.strInstructions}</p>
     </div>
+    // <div className="details-wrapper">
+    //   <h1>{details.strDrink}</h1>
+    //   <img src={details.strDrinkThumb}></img>
+    //   <h2>Ingredients</h2>
+    //   <ul className="details-items">
+    //     <li className="details-item">Glass: {details.strGlass}</li>
+
+    //     {ingredients.map((ingredient, index) => {
+    //       return (
+    //         <li key={index}>
+    //           <p>
+    //             {measurements[index]} {ingredient}
+    //           </p>
+    //         </li>
+    //       );
+    //     })}
+    //   </ul>
+    //   <h4>Instructions</h4>
+    //   <p>{details.strInstructions}</p>
+    // </div>
   );
 }
 

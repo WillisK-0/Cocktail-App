@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../style/alcoholSelector.css";
+import "../style/smAlcSelector.css";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-function Selector(props) {
+function SmAlcSelector(props) {
   const [alcoholCategory, setAlcoholCategory] = useState([]);
 
   // useEffect(() => {
@@ -20,11 +20,9 @@ function Selector(props) {
       .then((result) => props.handleCategorySelection(result.drinks));
   }
   return (
-    <div className="selector-wrapper">
-      <hr className="solid"></hr>
-
-      <ul className="selector-ul">
-        <li className="selector-items">
+    <div className="sm-selector-wrapper">
+      <ul className="sm-selector-ul">
+        <li className="sm-selector-items">
           <NavLink
             to="/category/vodka"
             onClick={() => handleImagePress("Vodka")}
@@ -32,28 +30,28 @@ function Selector(props) {
             <img
               src="https://www.thecocktaildb.com/images/ingredients/Vodka.png"
               alt="alcohol-bottle"
-              className="selector-bottle-img"
+              className="sm-selector-bottle-img"
             ></img>
           </NavLink>
         </li>
-        <li className="selector-items">
-          <NavLink to="/category/rum" onClick={() => handleImagePress("Rum")}>
+        <li className="sm-selector-items">
+          <NavLink to="/category/vodka" onClick={() => handleImagePress("Rum")}>
             <img
               src="https://www.thecocktaildb.com/images/ingredients/Rum.png"
               alt="alcohol-bottle"
-              className="selector-bottle-img"
+              className="sm-selector-bottle-img"
             ></img>
           </NavLink>
         </li>
-        <li className="selector-items">
+        <li className="sm-selector-items">
           <NavLink
-            to="/category/tequila"
+            to="/category/vodka"
             onClick={() => handleImagePress("Tequila")}
           >
             <img
               src="https://www.thecocktaildb.com/images/ingredients/Tequila.png"
               alt="alcohol-bottle"
-              className="selector-bottle-img"
+              className="sm-selector-bottle-img"
             ></img>
           </NavLink>
         </li>
@@ -68,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: "DRINK_LIST", drinkArray: drinks }),
   };
 };
-export default connect(null, mapDispatchToProps)(Selector);
+export default connect(null, mapDispatchToProps)(SmAlcSelector);

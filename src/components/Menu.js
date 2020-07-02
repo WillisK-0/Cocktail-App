@@ -15,97 +15,114 @@ function Menu(props) {
       .then((result) => props.handleTypeAction(result.drinks));
   };
 
-  const handleSearchPress = () => {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
+  const handleSearchPress = (input) => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`)
       .then((r) => r.json())
       .then((result) => props.handleSearchAction(result.drinks));
   };
+  const searchLink = "/search/" + search;
+
+  const handleKeyPress = (e, search) => {
+    if (e.which === 13) {
+      console.log("fire");
+      handleSearchPress(search);
+    }
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <h4 className="navbar-brand">U-MIX</h4>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
+    <div className="navbar-wrapper">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img
+          className="navbar-brand"
+          src="https://img.icons8.com/officel/40/000000/cocktail.png"
+        />
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <NavLink className="nav-link" to="/">
-              Home<span className="sr-only"></span>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <NavLink className="nav-link" to="/">
+                Home<span className="sr-only"></span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                {" "}
+              </a>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Drink-Type
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <NavLink
+                  className="dropdown-item"
+                  to="/drink-type/shot"
+                  onClick={() => handleTypeSelection("Shot")}
+                >
+                  Shot
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  to="/drink-type/cocktail"
+                  onClick={() => handleTypeSelection("Cocktail")}
+                >
+                  Cocktail
+                </NavLink>
+                <NavLink
+                  className="dropdown-item"
+                  to="/drink-type/beer"
+                  onClick={() => handleTypeSelection("Beer")}
+                >
+                  Beer
+                </NavLink>
+              </div>
+            </li>
+          </ul>
+          <div className="form-inline my-2 my-lg-0">
+            {/* <NavLink to={searchLink}> */}
+            <input
+              className="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyPress={(e) => handleKeyPress(e, search)}
+            ></input>
+            {/* </NavLink> */}
+            <NavLink to={searchLink}>
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                onClick={() => handleSearchPress(search)}
+              >
+                Search
+              </button>
             </NavLink>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#"></a>
-          </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Drink-Type
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink
-                className="dropdown-item"
-                to="/drink-type/shot"
-                onClick={() => handleTypeSelection("Shot")}
-              >
-                Shot
-              </NavLink>
-              <NavLink
-                className="dropdown-item"
-                to="/drink-type/cocktail"
-                onClick={() => handleTypeSelection("Cocktail")}
-              >
-                Cocktail
-              </NavLink>
-              <NavLink
-                className="dropdown-item"
-                to="/drink-type/beer"
-                onClick={() => handleTypeSelection("Beer")}
-              >
-                Beer
-              </NavLink>
-            </div>
-          </li>
-        </ul>
-        <div className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            onChange={(e) => setSearch(e.target.value)}
-          ></input>
-          <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            onClick={handleSearchPress}
-          >
-            Search
-          </button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
 
-{
-  /* <input value={input} onInput={e => setInput(e.target.value)}/> */
-}
 const mapDispatchToProps = (dispatch) => {
   return {
     handleTypeAction: (drinks) => {
