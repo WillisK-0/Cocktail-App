@@ -1,5 +1,6 @@
 .selector-wrapper {
   margin: auto;
+  margin-bottom: 3%;
 }
 
 .selector-ul {
@@ -11,6 +12,9 @@
 .selector-items {
   text-align: center;
   padding: 25px;
+  border: 3px solid #f78f8f;
+  margin: 1%;
+  border-radius: 25px;
 }
 
 .selector-bottle-img {
@@ -18,4 +22,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.selector-items:hover {
+  box-shadow: 0 5px 25px #343b3f;
 }

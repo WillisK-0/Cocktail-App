@@ -2,6 +2,10 @@ a,
 figcaption {
   text-decoration: none;
 }
+hr.solid {
+  border-top: 1px solid #bbb;
+  padding-bottom: 34px;
+}
 
 .drink-list-item img {
   width: 90%;
@@ -13,13 +17,53 @@ figcaption {
   margin-right: auto;
   margin-left: auto;
 }
-
+.drink-list-wrapper h1 {
+  text-align: center;
+}
 .drink-list-items {
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;
   list-style: none;
-  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0px;
+}
+.filtered-drink-list-title-item {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.filtered-drink-list-title-items {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0px;
+}
+
+.filtered-drink-list-title {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  width: 50%;
+  margin-right: auto;
+  align-items: center;
+}
+
+.sm-filter-drink-selector {
+  font-family: "Abril Fatface", cursive;
+  margin-bottom: 0.5%;
+}
+
+.sm-filter-drink-selector h1 {
+  font-size: 100px;
+  color: #343b3f;
+}
+
+.drink-items-wrapper {
+  width: 93%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .drink-card {

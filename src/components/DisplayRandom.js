@@ -31,27 +31,45 @@ function DisplayRandom(props) {
 
   drinkItem = (
     <div className="random-drink-wrapper">
-      <h1>Try this recipe!</h1>
-      <img
-        src={props.drink[0].strDrinkThumb}
-        className="random-drink-img"
-        alt="drink image"
-      ></img>
-      <div className="random-drink-content">
-        <h1>{props.drink[0].strDrink}</h1>
-        <ul>
-          {ingredients.map((ingredient, index) => {
-            return (
-              <li key={index}>
-                {measurements[index]} {ingredient}
-              </li>
-            );
-          })}
-        </ul>
-        <p>
-          Use a {props.drink[0].strGlass} then {props.drink[0].strInstructions}
-        </p>
-      </div>
+      <h1 id="tryRecipeH1">Try This Recipe!</h1>
+      <hr className="solid"></hr>
+
+      <ul className="random-drink-divs">
+        <li className="random-drink-item">
+          <div>
+            <h1>{props.drink[0].strDrink}</h1>
+          </div>
+
+          <div className="random-drink-card">
+            <img
+              src={props.drink[0].strDrinkThumb}
+              className="random-drink-img"
+              alt="drink image"
+            ></img>
+          </div>
+        </li>
+        <li className="random-drink-item">
+          {" "}
+          <div className="random-drink-content">
+            <h1>Ingredients:</h1>
+            <h3></h3>
+            <ul className="random-drink-items">
+              {ingredients.map((ingredient, index) => {
+                return (
+                  <li key={index}>
+                    {measurements[index]} {ingredient}
+                  </li>
+                );
+              })}
+            </ul>
+            <h4 id="instructionsH4">Instructions:</h4>
+            <p id="instructionsP">
+              Use a {props.drink[0].strGlass} then{" "}
+              {props.drink[0].strInstructions}
+            </p>
+          </div>
+        </li>
+      </ul>
     </div>
   );
 

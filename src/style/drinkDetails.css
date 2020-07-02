@@ -1,25 +1,28 @@
-.random-drink-wrapper {
+.drink-type-drink-wrapper {
   width: 95%;
   margin-left: auto;
   margin-right: auto;
   font-family: "Roboto", sans-serif;
 }
 
-.random-drink-card {
+.drink-type-drink-card {
   text-align: center;
   background-color: #d8c3a59c;
+
+  padding-top: 10px;
+  padding-bottom: 17px;
 }
-.random-drink-card-title {
+.drink-type-drink-card-title {
   background-color: #d8c3a59c;
 }
 
-.random-drink-divs {
+.drink-type-drink-divs {
   list-style: none;
   display: flex;
   flex-direction: row;
   padding: 0px;
 }
-.random-drink-item {
+.drink-type-drink-item {
   width: 50%;
   text-align: center;
 
@@ -29,7 +32,7 @@
   background-color: #d9c5a5;
 }
 
-.random-drink-divs h1 {
+.drink-type-drink-divs h1 {
   font-family: "Abril Fatface", cursive;
   color: #e85a4f;
   margin-bottom: 0px;
@@ -38,12 +41,12 @@
   border-top-left-radius: 25px;
 }
 
-.random-drink-header {
+.drink-type-drink-header {
   width: 122%;
   text-align: center;
 }
 
-.random-drink-img {
+.drink-type-drink-img {
   width: 68%;
   border-radius: 50%;
   margin-top: 12px;
@@ -51,11 +54,14 @@
   padding: 0.5px;
 }
 
-.random-drink-items {
+.drink-type-drink-items {
   list-style: none;
   margin-left: 35%;
   width: 28%;
   padding-top: 2%;
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #instructionsH4 {
@@ -73,29 +79,30 @@
   font-size: 100px;
   color: #333c3f;
 }
-.random-drink-content h1 {
+.drink-type-drink-content h1 {
   width: 336px;
   border-top-left-radius: 21px;
   border-top-right-radius: 21px;
   margin-left: auto;
   margin-right: auto;
 }
-.random-drink-content {
+.drink-type-drink-content {
   text-align: center;
 
   font-size: 20px;
 }
 
-.random-drink-content h1 {
+.drink-type-drink-content h1 {
   width: 100%;
   background-color: #343b3f;
+  margin-bottom: 2%;
 }
 
-.random-drink-content h3 {
+.drink-type-drink-content h3 {
   width: 100%;
 }
 
-.random-drink-content p {
+.drink-type-drink-content p {
   width: 60%;
   text-align: left;
   margin-left: 23%;

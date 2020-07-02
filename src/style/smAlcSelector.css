@@ -1,0 +1,27 @@
+.sm-selector-wrapper {
+  margin: auto;
+  margin-bottom: 3%;
+  width: 86%;
+}
+
+.sm-selector-ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0px;
+}
+
+.sm-selector-items {
+  border-radius: 50%;
+}
+
+.sm-selector-bottle-img {
+  width: 52%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sm-selector-items:hover {
+  box-shadow: 0 5px 25px #343b3f;
+}

@@ -1,4 +1,4 @@
-const initialState = { drinkTypeList: [] };
+const initialState = { drinkTypeList: [], drinkSearchList: [] };
 
 const drinkType = (state = initialState, action) => {
   switch (action.type) {

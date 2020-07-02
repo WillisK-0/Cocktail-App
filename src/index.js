@@ -12,14 +12,14 @@ import Search from "./components/Search";
 import DrinkDetails from "./components/DrinkDetails";
 import drinkTypeReducer from "./store/reducers/drinkTypeRed";
 import alcoholCategoryReducer from "./store/reducers/AlcoholCategory";
-import drinkSearch from "./store/reducers/drinkSearchRed";
+import drinkSearchReducer from "./store/reducers/drinkSearchRed";
 
 import DisplayType from "./components/DisplayType";
 
 const rootReducer = combineReducers({
   drinkTypeReducer,
   alcoholCategoryReducer,
-  drinkSearch,
+  drinkSearchReducer,
 });
 
 const store = createStore(
@@ -39,7 +39,7 @@ ReactDOM.render(
               path="/category/:alc_type"
               exact
             ></Route>
-            <Route component={Search} path="/search" exact></Route>
+            <Route component={Search} path="/search/:input" exact></Route>
             <Route
               component={DrinkDetails}
               path="/category/vodka/:id"
