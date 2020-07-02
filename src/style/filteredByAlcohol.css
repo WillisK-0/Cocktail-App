@@ -90,3 +90,36 @@ hr.solid {
 .drink-list-item {
   padding: 10px;
 }
+
+@media only screen and (max-width: 500px) {
+  body .sm-filter-drink-selector h1 {
+    font-size: 55px;
+    color: #343b3f;
+  }
+  body #cocunutCocktail {
+    display: none;
+  }
+  body #champagneBottle {
+    display: none;
+  }
+  body .filtered-drink-list-title {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
+  body .filtered-drink-list-title-items {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+  body .filtered-drink-list-title-item {
+    margin-right: 0%;
+    margin-left: 0%;
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
+}

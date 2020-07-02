@@ -28,7 +28,7 @@ function DisplayType(props) {
             const drinkDetails =
               `/drink-type/${props.match.params.type}/` + drink.idDrink;
             return (
-              <li key={index} className="drink-list-item">
+              <li key={index} className="drink-type-list-item">
                 <div className="drink-card">
                   <NavLink to={drinkDetails} style={{ textDecoration: "none" }}>
                     <img src={drink.strDrinkThumb} alt="drink"></img>
