@@ -16,6 +16,7 @@ function Menu(props) {
       .then((r) => r.json())
       .then((result) => props.handleTypeAction(result.drinks));
   };
+  // .then((result) => {result.drinks != null ? props.handleTypeAction(result.drinks) :(<Redirect to='/404-search-error'/>);
 
   const handleSearchPress = (input) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`)
@@ -82,10 +83,10 @@ function Menu(props) {
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <NavLink
                   className="dropdown-item"
-                  to="/drink-type/shot"
+                  to="/drink-type/shots"
                   onClick={() => handleTypeSelection("Shot")}
                 >
-                  Shot
+                  Shots
                 </NavLink>
                 <NavLink
                   className="dropdown-item"
@@ -144,4 +145,5 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
+
 export default connect(null, mapDispatchToProps)(Menu);

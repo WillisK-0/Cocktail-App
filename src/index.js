@@ -13,6 +13,7 @@ import DrinkDetails from "./components/DrinkDetails";
 import drinkTypeReducer from "./store/reducers/drinkTypeRed";
 import alcoholCategoryReducer from "./store/reducers/alcoholCategory";
 import drinkSearchReducer from "./store/reducers/drinkSearchRed";
+import SearchError from "./components/SearchError";
 
 import DisplayType from "./components/DisplayType";
 
@@ -40,6 +41,12 @@ ReactDOM.render(
               exact
             ></Route>
             <Route component={Search} path="/search/:input" exact></Route>
+            <Route
+              component={SearchError}
+              path="/404-search-error"
+              exact
+            ></Route>
+
             <Route
               component={DrinkDetails}
               path="/category/vodka/:id"
