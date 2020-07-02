@@ -25,6 +25,7 @@ function FilteredByAlcohol(props) {
           <ul className="filtered-drink-list-title-items">
             <li className="filtered-drink-list-title-item">
               <img
+                id="cocunutCocktail"
                 src="https://img.icons8.com/color/96/000000/coconut-cocktail.png"
                 alt="icon"
               />
@@ -34,6 +35,7 @@ function FilteredByAlcohol(props) {
             </li>
             <li className="filtered-drink-list-title-item">
               <img
+                id="champagneBottle"
                 src="https://img.icons8.com/fluent/96/000000/champagne-bottle.png"
                 alt="icon"
               />

@@ -2,4 +2,14 @@
   width: 100%;
   height: 150px;
   background-color: #343b3f;
+  text-align: center;
+}
+
+.footer-wrapper button {
+  background: #f78f8f;
+  margin-top: auto;
+  margin-top: 14%;
+  font-family: "Abril Fatface", cursive;
+
+  height: 28%;
 }

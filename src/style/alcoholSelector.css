@@ -27,3 +27,17 @@
 .selector-items:hover {
   box-shadow: 0 5px 25px #343b3f;
 }
+
+@media only screen and (max-width: 500px) {
+  body .selector-bottle-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body .selector-ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0px;
+  }
+}

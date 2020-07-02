@@ -1,0 +1,15 @@
+@media only screen and (max-width: 600px) {
+  .random-drink-img {
+    width: 30%;
+    border-radius: 50%;
+    margin-top: 12px;
+    border: 5px solid #f78f8f;
+    padding: 0.5px;
+  }
+  #tryRecipeH1 {
+    text-align: center;
+    font-family: "Abril Fatface", cursive;
+    font-size: 20px;
+    color: #333c3f;
+  }
+}

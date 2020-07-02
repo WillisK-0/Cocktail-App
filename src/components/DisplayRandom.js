@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
+// import styles from "../style/displayRandom.css";
+// import sharedStyles from "../style/mobileDisplayRandom.css";
 import "../style/displayRandom.css";
+
+// const tableStyles = { ...styles, ...sharedStyles };
+// CSSModules(Table, tableStyles);
 
 function DisplayRandom(props) {
   const [ingredients, setIngredients] = useState([]);
