@@ -23,7 +23,7 @@ function Search(props) {
             <li key={index} className="drink-list-item">
               <div className="drink-card">
                 <NavLink to={drinkDetails} style={{ textDecoration: "none" }}>
-                  <img src={drink.strDrinkThumb}></img>
+                  <img src={drink.strDrinkThumb} alt="drink"></img>
                   <figcaption>{drink.strDrink}</figcaption>
 
                   <input

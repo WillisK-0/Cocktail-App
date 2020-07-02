@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../style/Home.css";
-import * as utils from "../utils/fetchFunctions";
 import DisplayRandom from "./DisplayRandom";
 import Selector from "../components/AlcoholSelector";
 function Home() {

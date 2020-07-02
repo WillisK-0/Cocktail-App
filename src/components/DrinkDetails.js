@@ -47,7 +47,7 @@ function DrinkDetails(props) {
             <img
               src={details.strDrinkThumb}
               className="random-drink-img"
-              alt="drink image"
+              alt="drink"
             ></img>
           </div>
         </li>
@@ -55,7 +55,6 @@ function DrinkDetails(props) {
           {" "}
           <div className="random-drink-content">
             <h1>Ingredients:</h1>
-            <h3></h3>
             <ul className="drink-type-drink-items">
               {ingredients.map((ingredient, index) => {
                 return (
@@ -75,26 +74,6 @@ function DrinkDetails(props) {
         </li>
       </ul>
     </div>
-    // <div className="details-wrapper">
-    //   <h1>{details.strDrink}</h1>
-    //   <img src={details.strDrinkThumb}></img>
-    //   <h2>Ingredients</h2>
-    //   <ul className="details-items">
-    //     <li className="details-item">Glass: {details.strGlass}</li>
-
-    //     {ingredients.map((ingredient, index) => {
-    //       return (
-    //         <li key={index}>
-    //           <p>
-    //             {measurements[index]} {ingredient}
-    //           </p>
-    //         </li>
-    //       );
-    //     })}
-    //   </ul>
-    //   <h4>Instructions</h4>
-    //   <p>{details.strInstructions}</p>
-    // </div>
   );
 }
 

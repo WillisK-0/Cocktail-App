@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "../style/displayType.css";
@@ -22,7 +22,7 @@ function DisplayType(props) {
         <h1>{title}</h1>
       </div>
       <hr className="solid"></hr>
-      <div class="drink-type-list-wrapper">
+      <div className="drink-type-list-wrapper">
         <ul className="drink-type-list-items">
           {shuffled.slice(0, 50).map((drink, index) => {
             const drinkDetails =
@@ -31,7 +31,7 @@ function DisplayType(props) {
               <li key={index} className="drink-list-item">
                 <div className="drink-card">
                   <NavLink to={drinkDetails} style={{ textDecoration: "none" }}>
-                    <img src={drink.strDrinkThumb}></img>
+                    <img src={drink.strDrinkThumb} alt="drink"></img>
                     <figcaption>{drink.strDrink}</figcaption>
 
                     <input

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import SmAlcSelector from "./SmAlcSelector";
 
@@ -12,9 +12,7 @@ function FilteredByAlcohol(props) {
     let title =
       props.match.params.alc_type.charAt(0).toUpperCase() +
       props.match.params.alc_type.slice(1);
-
-    // setLocalDrinkList(props.drinkArray);
-  }, [props.drinkArray]);
+  }, [props.match.params.alc_type]);
 
   const shuffled = props.drinkArray.sort(() => 0.5 - Math.random());
   let title =
@@ -26,13 +24,19 @@ function FilteredByAlcohol(props) {
         <div className="filtered-drink-list-title">
           <ul className="filtered-drink-list-title-items">
             <li className="filtered-drink-list-title-item">
-              <img src="https://img.icons8.com/color/96/000000/coconut-cocktail.png" />
+              <img
+                src="https://img.icons8.com/color/96/000000/coconut-cocktail.png"
+                alt="icon"
+              />
             </li>
             <li className="filtered-drink-list-title-item">
               <h1>{title}</h1>
             </li>
             <li className="filtered-drink-list-title-item">
-              <img src="https://img.icons8.com/fluent/96/000000/champagne-bottle.png" />
+              <img
+                src="https://img.icons8.com/fluent/96/000000/champagne-bottle.png"
+                alt="icon"
+              />
             </li>
           </ul>
         </div>
@@ -50,7 +54,7 @@ function FilteredByAlcohol(props) {
               <li key={index} className="drink-list-item">
                 <div className="drink-card">
                   <NavLink to={drinkDetails} style={{ textDecoration: "none" }}>
-                    <img src={drink.strDrinkThumb}></img>
+                    <img src={drink.strDrinkThumb} alt="drink"></img>
                     <figcaption>{drink.strDrink}</figcaption>
                     <input
                       type="hidden"

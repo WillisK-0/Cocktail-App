@@ -44,7 +44,7 @@ function DisplayRandom(props) {
             <img
               src={props.drink[0].strDrinkThumb}
               className="random-drink-img"
-              alt="drink image"
+              alt="drink"
             ></img>
           </div>
         </li>
@@ -52,7 +52,6 @@ function DisplayRandom(props) {
           {" "}
           <div className="random-drink-content">
             <h1>Ingredients:</h1>
-            <h3></h3>
             <ul className="random-drink-items">
               {ingredients.map((ingredient, index) => {
                 return (

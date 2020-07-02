@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 import Search from "./components/Search";
 import DrinkDetails from "./components/DrinkDetails";
 import drinkTypeReducer from "./store/reducers/drinkTypeRed";
-import alcoholCategoryReducer from "./store/reducers/AlcoholCategory";
+import alcoholCategoryReducer from "./store/reducers/alcoholCategory";
 import drinkSearchReducer from "./store/reducers/drinkSearchRed";
 
 import DisplayType from "./components/DisplayType";

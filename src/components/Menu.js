@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import { NavLink } from "react-router-dom";
@@ -35,6 +35,7 @@ function Menu(props) {
         <img
           className="navbar-brand"
           src="https://img.icons8.com/officel/40/000000/cocktail.png"
+          alt="drink"
         />
         <button
           className="navbar-toggler"

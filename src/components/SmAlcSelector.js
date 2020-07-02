@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../style/smAlcSelector.css";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 function SmAlcSelector(props) {
-  const [alcoholCategory, setAlcoholCategory] = useState([]);
-
-  // useEffect(() => {
-  //   props.handleCategorySelection(alcoholCategory);
-  // }, []);
-
-  // src="https://www.thecocktaildb.com/images/ingredients/Rum.png"
-  // https://www.thecocktaildb.com/images/ingredients/Tequila.png
-
   function handleImagePress(alc) {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${alc}
     `)
