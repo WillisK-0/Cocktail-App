@@ -90,10 +90,10 @@ function Menu(props) {
                 </NavLink>
                 <NavLink
                   className="dropdown-item"
-                  to="/drink-type/cocktail"
+                  to="/drink-type/cocktails"
                   onClick={() => handleTypeSelection("Cocktail")}
                 >
-                  Cocktail
+                  Cocktails
                 </NavLink>
                 <NavLink
                   className="dropdown-item"

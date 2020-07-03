@@ -9,39 +9,14 @@ import { connect } from "react-redux";
 function FilteredByAlcohol(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
-    let title =
-      props.match.params.alc_type.charAt(0).toUpperCase() +
-      props.match.params.alc_type.slice(1);
-  }, [props.match.params.alc_type]);
+  }, []);
 
   const shuffled = props.drinkArray.sort(() => 0.5 - Math.random());
-  let title =
-    props.match.params.alc_type.charAt(0).toUpperCase() +
-    props.match.params.alc_type.slice(1);
+
   return (
     <div className="drink-list-wrapper">
       <div className="sm-filter-drink-selector">
-        <div className="filtered-drink-list-title">
-          <ul className="filtered-drink-list-title-items">
-            <li className="filtered-drink-list-title-item">
-              <img
-                id="cocunutCocktail"
-                src="https://img.icons8.com/color/96/000000/coconut-cocktail.png"
-                alt="icon"
-              />
-            </li>
-            <li className="filtered-drink-list-title-item">
-              <h1>{title}</h1>
-            </li>
-            <li className="filtered-drink-list-title-item">
-              <img
-                id="champagneBottle"
-                src="https://img.icons8.com/fluent/96/000000/champagne-bottle.png"
-                alt="icon"
-              />
-            </li>
-          </ul>
-        </div>
+        <div className="filtered-drink-list-title"></div>
         <hr className="solid"></hr>
 
         <SmAlcSelector />
