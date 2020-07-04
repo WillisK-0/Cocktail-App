@@ -14,7 +14,6 @@ import drinkTypeReducer from "./store/reducers/drinkTypeRed";
 import alcoholCategoryReducer from "./store/reducers/alcoholCategory";
 import drinkSearchReducer from "./store/reducers/drinkSearchRed";
 import SearchError from "./components/SearchError";
-
 import DisplayType from "./components/DisplayType";
 
 const rootReducer = combineReducers({
@@ -35,11 +34,7 @@ ReactDOM.render(
         <App>
           <Switch>
             <Route component={Home} path="/" exact />
-            <Route
-              component={FilteredByAlcohol}
-              path="/category/:alc_type"
-              exact
-            ></Route>
+            <Route component={FilteredByAlcohol} path="/category" exact></Route>
             <Route component={Search} path="/search/:input" exact></Route>
             <Route
               component={SearchError}
@@ -49,7 +44,7 @@ ReactDOM.render(
 
             <Route
               component={DrinkDetails}
-              path="/category/vodka/:id"
+              path="/category/drink/:id"
               exact
             ></Route>
             <Route

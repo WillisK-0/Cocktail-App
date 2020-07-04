@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+
 import "../style/drinkDetails.css";
 
 function DrinkDetails(props) {
@@ -37,6 +39,12 @@ function DrinkDetails(props) {
 
   return (
     <div className="random-drink-wrapper">
+      <NavLink to="" onClick={() => props.history.goBack}>
+        <img
+          src="https://img.icons8.com/android/24/000000/circled-left-2.png"
+          className="back-button"
+        />
+      </NavLink>
       <ul className="random-drink-divs">
         <li className="random-drink-item">
           <div>

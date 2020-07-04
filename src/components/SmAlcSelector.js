@@ -14,10 +14,7 @@ function SmAlcSelector(props) {
     <div className="sm-selector-wrapper">
       <ul className="sm-selector-ul">
         <li className="sm-selector-items">
-          <NavLink
-            to="/category/vodka"
-            onClick={() => handleImagePress("Vodka")}
-          >
+          <NavLink to="/category" onClick={() => handleImagePress("Vodka")}>
             <img
               src="https://www.thecocktaildb.com/images/ingredients/Vodka.png"
               alt="alcohol-bottle"
@@ -26,7 +23,7 @@ function SmAlcSelector(props) {
           </NavLink>
         </li>
         <li className="sm-selector-items">
-          <NavLink to="/category/vodka" onClick={() => handleImagePress("Rum")}>
+          <NavLink to="/category" onClick={() => handleImagePress("Rum")}>
             <img
               src="https://www.thecocktaildb.com/images/ingredients/Rum.png"
               alt="alcohol-bottle"
@@ -35,10 +32,7 @@ function SmAlcSelector(props) {
           </NavLink>
         </li>
         <li className="sm-selector-items">
-          <NavLink
-            to="/category/vodka"
-            onClick={() => handleImagePress("Tequila")}
-          >
+          <NavLink to="/category" onClick={() => handleImagePress("Tequila")}>
             <img
               src="https://www.thecocktaildb.com/images/ingredients/Tequila.png"
               alt="alcohol-bottle"

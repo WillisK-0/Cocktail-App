@@ -11,6 +11,9 @@ function FilteredByAlcohol(props) {
     window.scrollTo(0, 0);
   }, []);
 
+  // const handleBack = () => {
+  //   history.goBack();
+  // };
   const shuffled = props.drinkArray.sort(() => 0.5 - Math.random());
 
   return (
@@ -21,12 +24,15 @@ function FilteredByAlcohol(props) {
 
         <SmAlcSelector />
       </div>
+      <NavLink to="" onClick={() => props.history.goBack}>
+        <img src="https://img.icons8.com/android/24/000000/circled-left-2.png" />
+      </NavLink>
 
       <hr className="solid"></hr>
       <div className="drink-items-wrapper">
         <ul className="drink-list-items">
           {shuffled.slice(0, 50).map((drink, index) => {
-            const drinkDetails = "/category/vodka/" + drink.idDrink;
+            const drinkDetails = "/category/drink/" + drink.idDrink;
             return (
               <li key={index} className="drink-list-item">
                 <div className="drink-card">

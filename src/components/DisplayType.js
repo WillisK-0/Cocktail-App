@@ -21,6 +21,12 @@ function DisplayType(props) {
       <div className="drink-type-title">
         <h1>{title}</h1>
       </div>
+      <NavLink to="" onClick={() => props.history.goBack}>
+        <img
+          src="https://img.icons8.com/android/24/000000/circled-left-2.png"
+          className="back-button"
+        />
+      </NavLink>
       <hr className="solid"></hr>
       <div className="drink-type-list-wrapper">
         <ul className="drink-type-list-items">
