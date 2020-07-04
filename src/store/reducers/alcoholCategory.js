@@ -5,7 +5,9 @@ const alcoholCategory = (state = initialState, action) => {
     case "DRINK_LIST":
       return {
         ...state,
-        drinkList: state.drinkList.concat(action.drinkArray),
+        drinkList: state.drinkList
+          .splice(0, action.drinkArray.length)
+          .concat(action.drinkArray),
       };
   }
   return state;
