@@ -3,7 +3,7 @@ figcaption {
   text-decoration: none;
 }
 
-.drink-type-type-title h1 {
+.drink-type-title h1 {
   font-size: 100px;
   color: #343b3f;
 }
@@ -63,7 +63,7 @@ figcaption {
     list-style: none;
     padding: 0px;
   }
-  body .drink-type-type-title h1 {
+  body .drink-type-title h1 {
     font-size: 75px;
     color: #343b3f;
   }
